@@ -5,6 +5,7 @@
 <h2>Hello World!</h2>
 Si esto chuta aqui debería salir el nombre del entorno: <pre><%
 	Enumeration<String> keys = request.getHeaderNames();
+	out.println("<b>COMPUTER: " + System.getenv().get("COMPUTERNAME") + "</b><br>");
 	while (keys.hasMoreElements())
 	{
 		String key = keys.nextElement();
@@ -15,6 +16,7 @@ Si esto chuta aqui debería salir el nombre del entorno: <pre><%
 	for (String envName : env.keySet()) {
 		out.println(envName + "=" + env.get(envName));
 	}
+	out.println("COMPUTER: " + env.get("COMPUTERNAME"));
 	%></pre>
 </body>
 </html>
