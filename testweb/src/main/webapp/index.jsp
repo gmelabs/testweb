@@ -13,7 +13,7 @@ Si esto chuta aqui debería salir el nombre del entorno: <pre><%
 	out.println("<hr>");
 	Map<String, String> env = System.getenv();
 	for (String envName : env.keySet()) {
-		out.format("%s=%s%n", envName, env.get(envName));
+		out.println(envName + "=" + env.get(envName));
 	}
 	%></pre>
 </body>
