@@ -1,22 +1,25 @@
 <%@page import="java.util.Map"%>
-<%@page import="java.util.Enumeration"%>
+<%@page import="java.util.Enumeration"%><%
+
+String entorno = System.getenv().get("entorno");
+if (entorno == null) entorno = "null";
+String descEntorno = "Entorno Desconocido :O";
+String color = "gray";
+if (entorno.equals("ei")) {
+	descEntorno = "Entorno de TEST";
+	color = "green";
+} else if (entorno.equals("qt")) {
+	descEntorno = "Entorno de CERTIFICACIÓN";
+	color = "orange";
+} else if (entorno.equals("pr")) {
+	descEntorno = "Entorno de PRODUCCIÓN";
+	color = "red";
+}
+%>
 <html>
-<body>
-<h2>Hello World!</h2>
-Si esto chuta aqui debería salir el nombre del entorno: <pre><%
-	Enumeration<String> keys = request.getHeaderNames();
-	out.println("<b>COMPUTER: " + System.getenv().get("COMPUTERNAME") + "</b><br>");
-	while (keys.hasMoreElements())
-	{
-		String key = keys.nextElement();
-		out.println(key + ": " + request.getHeader(key) + "");
-	}
-	out.println("<hr>");
-	Map<String, String> env = System.getenv();
-	for (String envName : env.keySet()) {
-		out.println(envName + "=" + env.get(envName));
-	}
-	out.println("COMPUTER: " + env.get("COMPUTERNAME"));
-	%></pre>
-</body>
+ <head><title>Hola <%= descEntorno %></title></head>
+ <body>
+  <h1 style="color:<%= color %>;">Hello World!</h1>
+  <span style="color: <%= color %>;">Estamos en el <%= descEntorno %> (<b><%= entorno %></b>)</span>
+ </body>
 </html>
