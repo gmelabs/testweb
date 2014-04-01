@@ -3,11 +3,11 @@
 <body>
 <h2>Hello World!</h2>
 Si esto chuta aqui debería salir el nombre del entorno: <%
-	Enumeration<String> keys = session.getAttributeNames();
+	Enumeration<String> keys = request.getHeaderNames();
 	while (keys.hasMoreElements())
 	{
 	  String key = keys.nextElement();
-	  out.println(key + ": " + session.getValue(key) + "<br>");
+	  out.println(key + ": " + request.getHeader(key) + "<br>");
 	}
 	%>
 </body>
