@@ -25,7 +25,10 @@ String sNum2 = request.getParameter("num2");
 Integer num1 = null;
 Integer num2 = null;
 
-if (sNum1 == null && sNum2 == null) suma = "Introduzca dos números";
+if (sNum1 == null && sNum2 == null) {
+	suma = "Introduzca dos números";
+	sNum1 = sNum2 = "";
+}
 else {
 	try {
 		num1 = Integer.parseInt(sNum1);
@@ -33,7 +36,7 @@ else {
 		suma = "La suma es: " + (new Prueba()).suma(num1, num2);
 		
 	} catch(NumberFormatException e) {
-		suma = "No se puede sumar '" + sNum1 + "' y '" + sNum2;
+		suma = "No se puede sumar '" + sNum1 + "' y '" + sNum2 + "'";
 	}
 }
 %>
@@ -43,9 +46,11 @@ else {
   <h1 style="color:<%= color %>;">Hello World!</h1>
   <span style="color: <%= color %>;">Estamos en el <%= descEntorno %> (<b><%= entorno %></b>)</span>
   <br>
+  <hr>
+  <br>
   <%= suma %>
   <form action="index.jsp" method="get">
-    <input type="text" value="<%= sNum1 %>"/> + <input type="text" value="<%= sNum2 %>"/> <input type="submit"/>
+    <input type="text" name="num1" value="<%= sNum1 %>"/> + <input type="text" name="num2" value="<%= sNum2 %>"/> <input type="submit"/>
   </form>
  </body>
 </html>
