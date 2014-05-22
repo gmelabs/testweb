@@ -44,7 +44,7 @@ else {
  <head><title>Hola <%= descEntorno %></title></head>
  <body>
   <h1 style="color:<%= color %>;">Hello World!</h1>
-  <span style="color: <%= color %>;">Estamos en el <%= descEntorno %> (<b><%= entorno %></b>)</span>
+  <span style="color: <%= color %>;">Estoy en el <%= descEntorno %> (<b><%= entorno %></b>)</span>
   <br>
   <hr>
   <br>
